@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar><ion-title>¿Es par o es impar?</ion-title></ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pares_impares</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label position="stacked">Ingresa un numero</ion-label>
+    <ion-input type="number" [(ngModel)]="inputNumber"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="esImpar()">Revisar si es par o impar</ion-button>
+  <ion-item *ngIf="inputNumber !== undefined">
+    <ion-label>Resultado:</ion-label>
+    <ion-text>{{ esPar ? 'Es par' : 'Es impar' }}</ion-text>
+  </ion-item>
+  <ion-button (click)="irHome()">Ir a Home</ion-button></ion-content>

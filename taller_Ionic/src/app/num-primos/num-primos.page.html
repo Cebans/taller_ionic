@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>¿Es un numero primo?</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">¿Es un número primo?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label position="stacked">Inserta un numero:</ion-label>
+    <ion-input type="number" [(ngModel)]="inputNumber"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="revisarPrimo()">Revisar</ion-button>
+  <ion-item *ngIf="inputNumber !== undefined">
+    <ion-label>¿Es un número primo?</ion-label>
+    <ion-text>{{ esPrimo ? 'Si, es un numero primo' : 'No,no es un numero primo' }}</ion-text>
+  </ion-item>
+  <ion-button (click)="irHome()">Ir a Home</ion-button>
+</ion-content>

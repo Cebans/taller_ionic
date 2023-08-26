@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>conjuntos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Conjuntos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-label position="stacked">Ingresa numeros de A (separa por ','):</ion-label>
+      <ion-input type="text" [(ngModel)]="setA"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Ingresa numeros de B (separa por ','):</ion-label>
+      <ion-input type="text" [(ngModel)]="setB"></ion-input>
+    </ion-item>
+  
+    <ion-select [(ngModel)]="seleccionarOperacion">
+      <ion-select-option value="union">Union (AUB)</ion-select-option>
+      <ion-select-option value="intersection">Interseccion (A∩B)</ion-select-option>
+      <ion-select-option value="soloenA">En A pero no en B</ion-select-option>
+      <ion-select-option value="soloenB">En B pero no en A</ion-select-option>
+    </ion-select>
+  
+    <ion-button expand="full" (click)="determinarCaracteristicas(seleccionarOperacion)">Determinar conjuntos</ion-button>
+  
+    <ion-item>
+      <ion-label>Resultado:</ion-label>
+      <ion-text *ngIf="seleccionarOperacion === 'union'">{{ union.join(', ') }}</ion-text>
+      <ion-text *ngIf="seleccionarOperacion === 'interseccion'">{{ intersection.join(', ') }}</ion-text>
+      <ion-text *ngIf="seleccionarOperacion === 'soloenA'">{{ soloenA.join(', ') }}</ion-text>
+      <ion-text *ngIf="seleccionarOperacion === 'soloenB'">{{ soloenB.join(', ') }}</ion-text>
+    </ion-item>
+  <ion-button (click)="irHome()">Ir a Home</ion-button>
+</ion-content>

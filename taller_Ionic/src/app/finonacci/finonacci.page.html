@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar> <ion-title>Serie de Finonacci</ion-title></ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Finonacci</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-label position="stacked">Ingresa un numero:</ion-label>
+    <ion-input type="number" [(ngModel)]="inputNumber"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="generarserieFibonacci()">Generar Serie</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let num of serieFibonacci">{{ num }}</ion-item>
+  </ion-list>
+  <ion-button (click)="irHome()">Ir a Home</ion-button>
+</ion-content>
