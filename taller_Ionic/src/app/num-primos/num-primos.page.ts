@@ -10,25 +10,31 @@ import { IonicModule, NavController } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class NumPrimosPage implements OnInit {
-  inputNumber: number = 0;
-  esPrimo: boolean = false;
-  revisarPrimo() {
-    if (this.inputNumber <= 1) {
-      this.esPrimo = false;
-      return;
-    }
-    this.esPrimo = true;
-    for (let i = 2; i <= Math.sqrt(this.inputNumber); i++) {
-      if (this.inputNumber % i === 0) {
-        this.esPrimo = false;
-        break;
+  numeroIngresado: number = 0; 
+  numerosPrimos: number[] = [];
+
+  ngOnInit() {
+  }
+
+  calcularPrimos() {
+    this.numerosPrimos = [];
+    for (let i = 2; i < this.numeroIngresado; i++) {
+      if (this.esPrimo(i)) {
+        this.numerosPrimos.push(i);
       }
     }
+  }
+
+  esPrimo(num: number): boolean {
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num !== 1;
   }
   constructor(private navCtrl: NavController) {}
   irHome(){
     this.navCtrl.navigateBack('home');
-  }
-  ngOnInit() {
   }
 }
